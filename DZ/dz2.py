@@ -1,4 +1,8 @@
-str1 = "Я изучаю Nuthon. мне нравится Nuthon. Nuthon очень интересный язык програмирования."
-print(str1)
-str2 =str1.replace("Nuthon","Puthon")
-print(str2)
+import re
+
+
+def valid_login(name):
+    return re.findall("[^A-Za-z0-9_@-]{6,18}",name)
+
+
+print(valid_login("my-p@ssw0rd"))
