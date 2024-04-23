@@ -1,60 +1,26 @@
-class Automobile:
-    name= "name"
-    yearofrelease = "0000"
-    manufacturer ="BMW"
-    enginepower ="enginepower"
-    color = "color"
-    price = "price"
+class Person:
+    def __init__(self,person__name,person__old):
+        self.__person__name ='Irina'
+        self.__person__old = 26
+    def __set_person__name(self,person__name):
+        self.__person__name ='Igor'
+    def __set_person__old(self,person__old):
+        self.__person__old = 31
+    def __get_person__name(self,person__name):
+        return self.__person__name
+    def __get_person__old(self,person__old):
+        return self.__person__old
+    def __delete_person__name(self,person__name):
+        del self.__person__name
+    person__old = property(__get_person__old,__set_person__old)
+    person__name = property(__get_person__name,__set_person__name,__delete_person__name)
 
-    def print_info(self):
-        print("Данные автомобиля".center(40 ,"*"))
-        print(f"Название модели: {self.name}\nГод выпуска:{self.yearofrelease}\nПроизводитель:{self.manufacturer}\nМощность двигателя:{self.enginepower}\nЦвет машины:{self.color}\nЦена:{self.price}")
-        print("=" * 40)
-    def input_info(self,first_name,yearofrelease,manufacturer,enginepower,color,price):
-        self.name = first_name
-        self.yearofrelease = yearofrelease
-        self.manufacturer = manufacturer
-        self.enginepower = enginepower
-        self.color = color
-        self.price = price
-    def set_name(self, name):
-        self.name = name
-    def get_name(self):
-        return self.name
-    def set_yearofrelease(self,name):
-        self.yearofrelease= name
-    def get_yearofrelease(self):
-        return self.yearofrelease
-    def set_manufacturer(self,name):
-        self.manufacturer= name
-    def get_manufacturer(self):
-        return self.manufacturer
-    def set_enginepower(self,name):
-        self.enginepower =name
-    def get_enginepower(self):
-        return self.enginepower
-    def set_color(self,name):
-        self.color = name
-    def get_color(self):
-        return self.color
-    def set_price(self,name):
-        self.price = name
-    def get_price(self):
-        return self.price
 
-h1 = Automobile()
-h1.print_info()
-h1.input_info("x7 m50i","2021","BMW","530 л.с.","white","10790000")
-h1.print_info()
-h1.set_name("x7 m50i ")
-print(h1.get_name())
-h1.set_yearofrelease("2021")
-print(h1.get_yearofrelease())
-h1.set_manufacturer("BMW")
-print(h1.get_manufacturer())
-h1.set_enginepower("530 л.с.")
-print(h1.get_enginepower())
-h1.set_color("white")
-print(h1.get_color())
-h1.set_price("10790000")
-print(h1.get_price())
+
+p1 = Person('Irina',26)
+
+print(p1.__dict__)
+p1.person__name ='Igor'
+p1.person__old = '31'
+print(p1.person__name)
+print(p1.person__old)
