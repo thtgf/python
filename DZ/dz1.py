@@ -1,26 +1,29 @@
-class Person:
-    def __init__(self,person__name,person__old):
-        self.__person__name ='Irina'
-        self.__person__old = 26
-    def __set_person__name(self,person__name):
-        self.__person__name ='Igor'
-    def __set_person__old(self,person__old):
-        self.__person__old = 31
-    def __get_person__name(self,person__name):
-        return self.__person__name
-    def __get_person__old(self,person__old):
-        return self.__person__old
-    def __delete_person__name(self,person__name):
-        del self.__person__name
-    person__old = property(__get_person__old,__set_person__old)
-    person__name = property(__get_person__name,__set_person__name,__delete_person__name)
+class Figure:
+    def __init__(self,color):
+        self.__color = color
+    @property
+    def color(self):
+        return self.__color
+    @color.setter
+    def color(self,c):
+        self.__color =c
 
+class Rectangle (Figure):
+    def __init__(self,width, height,color):
+        self.width = width
+        self.__height = height
+        super().__init__(color)
+    @property
+    def width(self):
+        return self.__width
+    @width.setter
+    def width(self,value):
+        if value <0:
+            raise ValueError(f"Значение{value}должно быть оложительным числом")
+        self.__width=value
+    def area(self):
+        print(f"Прямоугольник {self.color}.Площадь:", end="")
+        return self.__width *self.__height
 
-
-p1 = Person('Irina',26)
-
-print(p1.__dict__)
-p1.person__name ='Igor'
-p1.person__old = '31'
-print(p1.person__name)
-print(p1.person__old)
+rect = Rectangle (-10,20,"green")
+print(rect.area())
