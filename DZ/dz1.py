@@ -1,29 +1,23 @@
-class Figure:
-    def __init__(self,color):
-        self.__color = color
-    @property
-    def color(self):
-        return self.__color
-    @color.setter
-    def color(self,c):
-        self.__color =c
+class Student:
+    def __init__(self,name):
+        self.name = name
+        self.note =self.Notebook()
+    def show(self):
+        print(self.name,end="")
+        self.note.show()
 
-class Rectangle (Figure):
-    def __init__(self,width, height,color):
-        self.width = width
-        self.__height = height
-        super().__init__(color)
-    @property
-    def width(self):
-        return self.__width
-    @width.setter
-    def width(self,value):
-        if value <0:
-            raise ValueError(f"Значение{value}должно быть оложительным числом")
-        self.__width=value
-    def area(self):
-        print(f"Прямоугольник {self.color}.Площадь:", end="")
-        return self.__width *self.__height
+    class Notebook:
+        def __init__(self):
+            self.brand ="HP"
+            self.cpu ="i7"
+            self.ram =16
 
-rect = Rectangle (-10,20,"green")
-print(rect.area())
+        def show(self):
+            print(f"=>{self.brand},{self.cpu},{self.ram}")
+
+
+s1 = Student("Roman")
+s2 = Student("Vladimir")
+
+s1.show()
+s2.show()
