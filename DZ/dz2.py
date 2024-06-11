@@ -9,13 +9,27 @@ def get_html(url):
 
 
 def get_data(html):
-    soup = BeautifulSoup(html, "html.parser")
-    p1 = soup.find_("header", id="masthead").find("p",class_="site-description")
-    return p1
+    soup = BeautifulSoup(html, "lxml")
+    elements = soup.find_all("div", class_="plugin-card")
+    for el in elements:
+        try:
+            name = el.find("h3", class="entry-title").text
+        except AttributeError:
+            name =""
+
+
+        try:
+            url =el.find"h3",class_="entry-title").find('a').get("href")
+        except AttributeError:
+            url = ""
+        print(name)
 
 
 
 
 def main():
-    url = "https://ru.wordpress.org/"
+    url = "https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
     print(get_data(get_html(url)))
+
+if __name__ == '__main__':
+    main()
