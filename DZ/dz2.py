@@ -1,16 +1,12 @@
-from jinja2 import Template
-site = [
-    {'id':1,'index':'Главная'},
-    {'id':2,'news':'Новости'},
-    {'id':3,'about':'О компании'},
-    {'id':4,'shop':'Магазин'},
-    {'id':5,'contacts':'Контакты'},
-]
-link ="""<ul>
-<li><a href="/index" class="active">Главная</a></li>
-<li><a href="/news">Новости</a></li>
-<li><a href="/about">О компании</a></li>
-<li><a href="/shop">Магазин</a></li>
-<li><a href="/contacts">Контакты</a></li>
-</ul>"""
-print(link)
+
+html = '''
+{% macro input(name, type,placeholder) -%}
+<input type="{{type}}" name="{{name}}"placeholder="{{placeholder}}>
+{%- endmacro %}
+<p><input type="text" name="firstname" placeholder ="Имя"></p>
+<p><input type ="text" name="lastname" placeholder="Фамилия"></p>
+<p><input type ="text" name="address" placeholder="Адрес"></p>
+<p><input tipe ="tel" name="phone" placeholder ="Телефон"></p>
+<p><input tipe ="text" name ="email" placeholder ="Почта"></p>
+'''
+print(html)
