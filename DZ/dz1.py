@@ -1,18 +1,10 @@
-import sqlite3
+import ...
 
-from flask import Flask
-app = Flask(__name__)
+app =flask(__name__)
+
 @app.route('/')
-def home():
-    return 'главная'
+def index():
+    return render_template('index.html.xsl')
 
-
-@app.route('/about')
-def about():
-    import random
-    return ('лураррацаиауицапвиыраипыфмавппаивпмрвыивсипвиргавимвыиапнвипавыипыипсимвпыивыипивспыныипивыисвп')
-@app.route('/info')
-def info():
-    return 'gerfdgfdsfgewgterfwdsbfefwfbefwewdsadgtrewqdsafgerfwdsvfedsfefwdsfrewqdsadfegrewfdsvfsdvbgfdedsfb'
-if __name__ == '__main__':
-        app.run()
+if __name__ == '__main__'
+    app.run(debug=true)
